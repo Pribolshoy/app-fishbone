@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  hhvm:
+    build:
+      dockerfile: docker/hhvm/builds/hhvm.Dockerfile
+      context: ../../
+    ports:
+      - 9005:9000
+    volumes:
+      - ../../app:/var/www
+#      - ./.env:/app/.env
+#      - /tmp:/tmp
+      - ../hhvm/conf/hhvm/server.ini:/etc/hhvm/server.ini
+    tty:
+      true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env
+#    environment:
+#      - POSTGRESQL_PORT=$POSTGRESQL_NETWORK_PORT
+    networks:
+      - net
+    entrypoint: /usr/bin/hhvm -m server -c /etc/hhvm/server.ini
+networks:
+  net:
+    driver: bridge
