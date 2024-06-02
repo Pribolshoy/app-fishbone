@@ -47,46 +47,7 @@ $config = array(
             [
                 'host' => 'redis',
                 'port' => '6379',
-                'password' => 'GdLf59egCOb',
-                'database' => 0,
-                'max_databases' => 16, /* Manual configuration of max databases for Redis < 2.6 */
-                'stats' => array(
-                    'enable' => 1,
-                    'database' => 0,
-                ),
-                'dbNames' => array(/* Name databases. key should be database id and value is the name */
-                ),
-            ],
-            [
-                'host' => 'redis_db',
-                'port' => '6379',
-                'password' => 'GdLf59egCOb',
-                'database' => 0,
-                'max_databases' => 16, /* Manual configuration of max databases for Redis < 2.6 */
-                'stats' => array(
-                    'enable' => 1,
-                    'database' => 0,
-                ),
-                'dbNames' => array(/* Name databases. key should be database id and value is the name */
-                ),
-            ],
-            [
-                'host' => '37.230.112.37',
-                'port' => '63795',
-                'password' => 'GdLf59egCOb',
-                'database' => 0,
-                'max_databases' => 16, /* Manual configuration of max databases for Redis < 2.6 */
-                'stats' => array(
-                    'enable' => 1,
-                    'database' => 0,
-                ),
-                'dbNames' => array(/* Name databases. key should be database id and value is the name */
-                ),
-            ],
-            [
-                'host' => '37.230.112.37',
-                'port' => '63905',
-                'password' => 'GdLf59egCOb',
+                'password' => 'mypassword',
                 'database' => 0,
                 'max_databases' => 16, /* Manual configuration of max databases for Redis < 2.6 */
                 'stats' => array(

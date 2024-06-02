@@ -38,11 +38,11 @@ RUN \
     && cd /app
 #    && composer install
 
-COPY ./docker/local/bin/app.sh /start.sh
+COPY ./docker/main/bin/app.sh /start.sh
 
 RUN chmod +x /start.sh
 
-COPY ./docker/local/conf/app/common.conf /opt/bitnami/php/etc/common.conf
+COPY ./docker/main/conf/app/common.conf /opt/bitnami/php/etc/common.conf
 
 STOPSIGNAL SIGQUIT
 

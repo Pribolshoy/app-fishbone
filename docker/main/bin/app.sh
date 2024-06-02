@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# тестируем подключения к БД
-
 connectstring="host=$POSTGRESQL_HOST dbname=$POSTGRESQL_DB_NAME user=$POSTGRESQL_USERNAME password=$POSTGRESQL_PASS"
 echo $connectstring;
 

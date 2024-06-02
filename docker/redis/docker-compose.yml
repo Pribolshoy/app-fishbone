@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  redis:
+    build:
+      dockerfile: docker/redis/builds/redis.Dockerfile
+      context: ../../
+#    ports:
+#      - $REDIS_PORT:$REDIS_NETWORK_PORT
+    volumes:
+      - ../redis/db/redis:/bitnami/redis/data
+      - ../redis/conf/redis/redis.conf:/opt/bitnami/redis/mounted-etc/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
+      - REDIS_USERNAME=$REDIS_USERNAME
+      - REDIS_PASSWORD=$REDIS_PASS
+    networks:
+      - net
+  redmin:
+    image: faktiva/php-redis-admin
+    ports:
+      - "8520:80"
+    tty:
+      true
+    volumes:
+      - ../redis/conf/redmin/config.php:/var/www/html/php-redis-admin/app/config/config.php
+    depends_on:
+      - redis
+    networks:
+      - net
+networks:
+  net:
+    driver: bridge
