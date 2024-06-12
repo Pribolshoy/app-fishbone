@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export HOST_UID=`id -u`
+export HOST_NAME=`id -un`
+
+docker-compose exec app composer $1 $2 $3 $4 $5
+
+echo "docker-compose exec -e user:$HOST_UID app chown -R $HOST_UID:$HOST_UID /app/vendor/"
+docker-compose exec -e user:$HOST_UID app chown -R $HOST_UID:$HOST_UID /app/vendor/

@@ -8,7 +8,7 @@ services:
     volumes:
       - ./conf/nginx/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf
       - ./conf/nginx/app.conf:/opt/bitnami/nginx/conf/server_blocks/app.conf
-      - ./conf/nginx/hhvm.conf:/opt/bitnami/nginx/conf/server_blocks/hhvm.conf
+#      - ./conf/nginx/hhvm.conf:/opt/bitnami/nginx/conf/server_blocks/hhvm.conf
       - ../../app:/app
       - /tmp/sock:/tmp/sock
     networks:
@@ -19,13 +19,13 @@ services:
       - app
   app:
     build:
-      dockerfile: docker/main/builds/app.Dockerfile
+      dockerfile: docker/php/builds/php8.3.Dockerfile
       context: ../../
     volumes:
       - ../../app:/app
       - ./.env:/app/.env
-      - ./conf/app/php.ini:/opt/bitnami/php/etc/conf.d/common.ini
-      - ./conf/app/common.conf:/opt/bitnami/php/etc/common.conf
+      - ../php/conf/php8.3/php.ini:/opt/bitnami/php/etc/conf.d/common.ini
+      - ../php/conf/php8.3/common.conf:/opt/bitnami/php/etc/common.conf
       - /tmp/sock:/tmp/sock
     tty:
       true
