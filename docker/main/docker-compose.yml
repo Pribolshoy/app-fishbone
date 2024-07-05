@@ -1,6 +1,11 @@
 version: "3.9"
 
 services:
+# alternative way to create service from other docker-compose file
+#  hhvm:
+#    extends:
+#      file: ../hhvm/docker-compose.yml
+#      service: hhvm
   nginx:
     image: bitnami/nginx:latest
     ports:
